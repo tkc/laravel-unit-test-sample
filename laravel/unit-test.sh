@@ -7,3 +7,4 @@
 
 vendor/bin/phpunit -c phpunit.xml
 
+# vendor/bin/codecept generate:cept acceptance Welcome

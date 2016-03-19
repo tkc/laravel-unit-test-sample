@@ -15,7 +15,7 @@ class ExampleTest extends TestCase
         Artisan::call('migrate');
         $this->seed();
     }
-    
+
     /**
      * A basic functional test example.
      *

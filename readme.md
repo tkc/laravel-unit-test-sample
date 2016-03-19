@@ -31,3 +31,6 @@ http://codeception.com/
 テストに合格したら(グリーンになったら) 、
 コードをリファクタリングできます。
 
+
+Codeception.docs.ja
+http://piccagliani.github.io/Codeception.docs.ja_JP/02-GettingStarted.html
