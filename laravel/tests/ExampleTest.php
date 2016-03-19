@@ -8,6 +8,14 @@ use Way\Tests\Should;
 
 class ExampleTest extends TestCase
 {
+    public function setUp()
+    {
+        parent::setUp();
+        Artisan::call('migrate:rollback');
+        Artisan::call('migrate');
+        $this->seed();
+    }
+    
     /**
      * A basic functional test example.
      *
@@ -17,8 +25,6 @@ class ExampleTest extends TestCase
     {
         $this->visit('/')
             ->see('Laravel 5');
-
-//        Artisan::call('migrate:refresh');
     }
 
     public function testLaravelDevsIncludesDayle()

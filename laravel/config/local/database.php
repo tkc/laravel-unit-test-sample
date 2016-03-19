@@ -1,9 +1,5 @@
 <?php
 
-print_r('local db');
-echo  getenv('APP_ENV');
-
-
 return [
 
     /*
