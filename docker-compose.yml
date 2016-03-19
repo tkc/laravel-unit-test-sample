@@ -1,7 +1,8 @@
 
 # PHP + NGINX Container #----------------------------------
 php-nginx:
-  image: laradock/phpnginx:latest
+#  image: laradock/phpnginx:latest
+  image: tkc/web
   container_name: php-nginx
   ports:
     - "80:80"
@@ -23,8 +24,10 @@ mysql:
   container_name: mysql
   ports:
     - "3306:3306"
-  volumes_from:
-    - data
+#  volumes_from:
+#    - data
+  volumes:
+    - ./mysql-data:/var/lib/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead
