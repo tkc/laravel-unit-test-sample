@@ -12,6 +12,7 @@ php-nginx:
     - ./logs/nginx:/var/log/nginx
   links:
     - mysql
+    - mysqltesting
     - redis
   privileged: true
   extra_hosts:
@@ -28,6 +29,24 @@ mysql:
 #    - data
   volumes:
     - ./mysql-data:/var/lib/mysql
+  environment:
+    MYSQL_DATABASE: homestead
+    MYSQL_USER: homestead
+    MYSQL_PASSWORD: secret
+  privileged: true
+
+
+# TODO not work
+# MySQL Container #----------------------------------------
+mysqltesting:
+  image: laradock/mysql:latest
+  container_name: mysqltesting
+  ports:
+    - "3307:3306"
+#  volumes_from:
+#    - data
+  volumes:
+    - ./mysql-data-test:/var/lib/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead
