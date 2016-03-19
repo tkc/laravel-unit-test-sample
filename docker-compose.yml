@@ -1,6 +1,3 @@
-###########################################################
-#      MAINTAINER: Mahmoud Zalt <mahmoud@zalt.me>         #
-###########################################################
 
 # PHP + NGINX Container #----------------------------------
 php-nginx:
@@ -20,7 +17,6 @@ php-nginx:
     - "laravel.dev:xxx.xxx.xxx.xxx"
 
 
-
 # MySQL Container #----------------------------------------
 mysql:
   image: laradock/mysql:latest
@@ -35,6 +31,7 @@ mysql:
     MYSQL_PASSWORD: secret
   privileged: true
 
+
 # Redis Container #----------------------------------------
 redis:
   image: laradock/redis:latest
@@ -48,6 +45,7 @@ redis:
   restart: always
   privileged: true
 
+
 # Data Volume Container #----------------------------------
 data:
   image: laradock/data:latest
@@ -55,6 +53,7 @@ data:
   volumes:
     - /var/lib/mysql
     - /var/lib/redis
+
 
 # Beanstalkd Container #-----------------------------------
 # beanstalkd:
