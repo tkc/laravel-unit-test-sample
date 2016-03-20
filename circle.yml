@@ -13,7 +13,7 @@ machine:
 dependencies:
   override:
     - cp Code/composer.json_org Code/composer.json
-    - cd Code &$ composer install --prefer-source --no-interaction --no-dev
+    - cd Code && composer install --prefer-source --no-interaction --no-dev
   post:
     - cd Code && php artisan optimize
     - sudo chmod -R 775 Code/storage
