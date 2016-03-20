@@ -20,8 +20,8 @@ dependencies:
 
 database:
   override:
-    - cd Code && php artisan migrate --force --env=circleci
-    - cd Code && php artisan db:seed --force --env=circleci
+#    - cd Code && php artisan migrate --force --env=circleci
+#    - cd Code && php artisan db:seed --force --env=circleci
 
 test:
   post:
