@@ -12,7 +12,7 @@ machine:
 
 dependencies:
   override:
-    - cd laravel && composer install --prefer-source --no-interaction --no-dev
+      - cd laravel & composer install --prefer-source --no-interaction --no-dev
     post:
       - cd laravel && php artisan optimize
       - sudo chmod -R 775 laravel/storage
