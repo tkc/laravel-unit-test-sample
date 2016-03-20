@@ -15,8 +15,8 @@ machine:
 #    - cp Code/composer.json_org Code/composer.json
 #    - cd Code && composer install --prefer-source --no-interaction --no-dev
   post:
-    - sudo chmod -R 775 Code/storage
-    - sudo chmod -R 775 Code/bootstrap/cache
+    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/storage
+    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/bootstrap/cache
 
 #database:
 #  override:
@@ -29,4 +29,4 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
     - cd Code && phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
   post:
-    - Code/vendor/bin/phpunit -c Code/phpunit.xml
+    - /home/ubuntu/laravel-unit-test-sample/Code/vendor/bin/phpunit -c /home/ubuntu/laravel-unit-test-sample/Code/phpunit.xml
