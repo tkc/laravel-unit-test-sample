@@ -24,7 +24,7 @@ database:
 #    - cd Code && php artisan db:seed --force --env=circleci
 
 test:
- override:
+  override:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
     - cd Code && phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
   post:
