@@ -11,19 +11,18 @@ machine:
     DB_PASSWORD: secret
 
 dependencies:
-  override:
-    - cp Code/composer.json_org Code/composer.json
-    - cd Code && composer install --prefer-source --no-interaction --no-dev
+#  override:
+#    - cp Code/composer.json_org Code/composer.json
+#    - cd Code && composer install --prefer-source --no-interaction --no-dev
   post:
-    - cd Code && php artisan optimize
     - sudo chmod -R 775 Code/storage
     - sudo chmod -R 775 Code/bootstrap/cache
 
 database:
   override:
-    - cd Code && php artisan migrate --force --env=production --no-interaction -vvv
-    - cd Code && php artisan db:seed --force --env=production --no-interaction -vvv
+    - cd Code && php artisan migrate --force --env=circleci
+    - cd Code && php artisan db:seed --force --env=circleci
 
 test:
   post:
-    - Code/vendor/bin/phpunit
+    - Code/vendor/bin/phpunit -c Code/phpunit.xml
