@@ -25,7 +25,7 @@ database:
 
 test:
   override:
-    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-    - cd Code && phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
+#    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+#    - cd Code && phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
   post:
     - Code/vendor/bin/phpunit -c Code/phpunit.xml
