@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Way\Tests\Assert;
 use Way\Tests\Should;
 
-class WebTest extends TestCase
+class ApiTest extends TestCase
 {
     public function setUp()
     {
@@ -23,8 +23,9 @@ class WebTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-            ->see('Laravel 5');
+        $response = $this->call('GET', '/language/123');
+        $this->assertEquals(200, $response->status());
     }
+
 
 }

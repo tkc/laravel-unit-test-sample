@@ -9,6 +9,7 @@
     </div>
 
     <div>
-        <input type="submit" value="Register">
+        <input type="submit" value="Register" name="register">
     </div>
+
 </form>

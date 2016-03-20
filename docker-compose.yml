@@ -1,9 +1,9 @@
 
 # PHP + NGINX Container #----------------------------------
-php-nginx:
+laravel5:
 #  image: laradock/phpnginx:latest
-  image: tkc/web
-  container_name: php-nginx
+  image: tkcdocker/laravel5
+  container_name: laravel5
   ports:
     - "80:80"
   volumes:
@@ -28,7 +28,7 @@ mysql:
 #  volumes_from:
 #    - data
   volumes:
-    - ./mysql-data:/var/lib/mysql
+    - ./logs/mysql:/var/log/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead
@@ -36,7 +36,6 @@ mysql:
   privileged: true
 
 
-# TODO not work
 # MySQL Container #----------------------------------------
 mysqltesting:
   image: laradock/mysql:latest
@@ -46,7 +45,7 @@ mysqltesting:
 #  volumes_from:
 #    - data
   volumes:
-    - ./mysql-data-test:/var/lib/mysql
+    - ./logs/mysql-testing:/var/log/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead
@@ -60,8 +59,8 @@ redis:
   container_name: redis
   ports:
     - "6379:6379"
-  volumes_from:
-    - data
+#  volumes_from:
+#    - data
   volumes:
     - ./logs/redis:/var/log/redis
   restart: always

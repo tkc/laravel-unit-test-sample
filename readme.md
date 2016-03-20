@@ -34,3 +34,30 @@ http://codeception.com/
 
 Codeception.docs.ja
 http://piccagliani.github.io/Codeception.docs.ja_JP/02-GettingStarted.html
+
+Laravelでアプリケーションテストをする際のモックの話
+http://sota1235.hatenablog.com/entry/2015/10/12/210000
+
+
+satooshi/php-coveralls
+https://github.com/satooshi/php-coveralls
+
+
+// tests配下全部実行(設定ファイルはphpunit.xml)
+% php vendor/bin/phpunit
+
+
+// 指定ディレクトリ配下全部実行
+% php vendor/bin/phpunit tests/Http
+
+
+// クラス名で絞り込んで実行
+% php vendor/bin/phpunit --filter=SampleTest
+
+
+// メソッド名で絞り込んで実行
+% php vendor/bin/phpunit --filter=visit_sample_page
+
+
+Laravel and CircleCI
+https://github.com/mistakevin/old-site/wiki/Laravel-and-CircleCI
