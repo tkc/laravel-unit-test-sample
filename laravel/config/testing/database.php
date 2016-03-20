@@ -52,19 +52,34 @@ return [
             'prefix' => '',
         ],
 
+//        'mysql' => [
+//            'driver' => 'mysql',
+//            'host' => env('MYSQLTESTING_PORT_3306_TCP_ADDR', 'localhost'),
+//            'port' => env('MYSQLTESTING_PORT_3306_TCP_PORT', '3306'),
+//            'database' => env('MYSQLTESTING_ENV_MYSQL_DATABASE', 'forge'),
+//            'username' => env('MYSQLTESTING_ENV_MYSQL_USER', 'forge'),
+//            'password' => env('MYSQLTESTING_ENV_MYSQL_PASSWORD', ''),
+//            'charset' => 'utf8',
+//            'collation' => 'utf8_unicode_ci',
+//            'prefix' => '',
+//            'strict' => false,
+//            'engine' => null,
+//        ],
+
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('MYSQLTESTING_PORT_3306_TCP_ADDR', 'localhost'),
-            'port' => env('MYSQLTESTING_PORT_3306_TCP_PORT', '3306'),
-            'database' => env('MYSQLTESTING_ENV_MYSQL_DATABASE', 'forge'),
-            'username' => env('MYSQLTESTING_ENV_MYSQL_USER', 'forge'),
-            'password' => env('MYSQLTESTING_ENV_MYSQL_PASSWORD', ''),
+            'host' => env('MYSQL_PORT_3306_TCP_ADDR', 'localhost'),
+            'port' => env('MYSQL_PORT_3306_TCP_PORT', '3306'),
+            'database' => env('MYSQL_ENV_MYSQL_DATABASE', 'forge'),
+            'username' => env('MYSQL_ENV_MYSQL_USER', 'forge'),
+            'password' => env('MYSQL_ENV_MYSQL_PASSWORD', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'strict' => false,
             'engine' => null,
         ],
+
 
         /*
         'mysql' => [

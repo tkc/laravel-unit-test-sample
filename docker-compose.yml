@@ -25,10 +25,10 @@ mysql:
   container_name: mysql
   ports:
     - "3306:3306"
-#  volumes_from:
-#    - data
-  volumes:
-    - ./logs/mysql:/var/log/mysql
+  volumes_from:
+    - data
+#  volumes:
+#    - ./logs/mysql:/var/log/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead
@@ -42,10 +42,10 @@ mysqltesting:
   container_name: mysqltesting
   ports:
     - "3307:3306"
-#  volumes_from:
-#    - data
-  volumes:
-    - ./logs/mysql-testing:/var/log/mysql
+  volumes_from:
+    - data
+#  volumes:
+#    - ./logs/mysql-testing:/var/log/mysql
   environment:
     MYSQL_DATABASE: homestead
     MYSQL_USER: homestead

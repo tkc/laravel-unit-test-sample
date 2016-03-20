@@ -11,9 +11,9 @@ class WebTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        Artisan::call('migrate:rollback');
-        Artisan::call('migrate');
-        Artisan::call('db:seed');
+//        Artisan::call('migrate:rollback');
+//        Artisan::call('migrate');
+//        Artisan::call('db:seed');
     }
 
     public function testTopPage()
@@ -30,7 +30,8 @@ class WebTest extends TestCase
             ->type('Taylor', 'name')
             ->check('terms');
 //            ->press('register');
-        //->seePageIs('/dashboard');
+//        ->seePageIs('/dashboard');
     }
+
 
 }

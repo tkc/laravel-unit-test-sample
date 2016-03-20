@@ -12,9 +12,9 @@ class EtcTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        Artisan::call('migrate:rollback');
-        Artisan::call('migrate');
-        $this->seed();
+//        Artisan::call('migrate:rollback');
+//        Artisan::call('migrate');
+//        $this->seed();
     }
 
     public function testLaravelDevsIncludesDayle()
