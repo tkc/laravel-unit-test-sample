@@ -3,32 +3,26 @@ machine:
     Asia/Tokyo
   php:
     version: 5.6.5
-
-environment:
-  APP_ENV: circleci
-  DB_HOST: 127.0.0.1
-  DB_DATABASE: homestead
-  DB_USERNAME: homestead
-  DB_PASSWORD: secret
+  environment:
+    APP_ENV: circleci
+    DB_HOST: 127.0.0.1
+    DB_DATABASE: homestead
+    DB_USERNAME: homestead
+    DB_PASSWORD: secret
 
 dependencies:
   override:
-    - composer install --prefer-source --no-interaction --no-dev
-
-pre:
-  - echo "memory_limit = 1024M" > ~/.phpenv/versions/5.5.9/etc/conf.d/memory.ini
-
-post:
-  - php artisan optimize
-  - sudo chmod -R 775 laravel/storage
-  - sudo chmod -R 775 laravel/bootstrap/cache
-
-test:
-  post:
-    - laravel/vendor/bin/phpunit
+    - cd laravel && composer install --prefer-source --no-interaction --no-dev
+    post:
+      - cd laravel && php artisan optimize
+      - sudo chmod -R 775 laravel/storage
+      - sudo chmod -R 775 laravel/bootstrap/cache
 
 database:
   override:
     - php artisan migrate --force --env=production --no-interaction -vvv
     - php artisan db:seed --force --env=production --no-interaction -vvv
-    
+
+test:
+  post:
+    - laravel/vendor/bin/phpunit
