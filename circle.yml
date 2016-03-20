@@ -12,17 +12,18 @@ machine:
 
 dependencies:
   override:
-      - cd laravel & composer install --prefer-source --no-interaction --no-dev
+      - cp Code/composer.json_org Code/composer.json
+      - cd Code &$ composer install --prefer-source --no-interaction --no-dev
     post:
-      - cd laravel && php artisan optimize
-      - sudo chmod -R 775 laravel/storage
-      - sudo chmod -R 775 laravel/bootstrap/cache
+      - cd Code && php artisan optimize
+      - sudo chmod -R 775 Code/storage
+      - sudo chmod -R 775 Code/bootstrap/cache
 
 database:
   override:
-    - php artisan migrate --force --env=production --no-interaction -vvv
-    - php artisan db:seed --force --env=production --no-interaction -vvv
+    - cd Code && php artisan migrate --force --env=production --no-interaction -vvv
+    - cd Code && php artisan db:seed --force --env=production --no-interaction -vvv
 
 test:
   post:
-    - laravel/vendor/bin/phpunit
+    - Code/vendor/bin/phpunit
