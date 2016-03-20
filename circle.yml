@@ -19,10 +19,13 @@ dependencies:
     - sudo chmod -R 775 Code/bootstrap/cache
 
 database:
-  override:
+#  override:
 #    - cd Code && php artisan migrate --force --env=circleci
 #    - cd Code && php artisan db:seed --force --env=circleci
 
 test:
+ override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+    - cd Code && phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
   post:
     - Code/vendor/bin/phpunit -c Code/phpunit.xml

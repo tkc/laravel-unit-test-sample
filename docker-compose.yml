@@ -8,7 +8,7 @@ laravel5:
     - "80:80"
   volumes:
     - ./settings/nginx:/etc/nginx/sites-available
-    - ./laravel/:/var/www
+    - ./Code/:/var/www
     - ./logs/nginx:/var/log/nginx
   links:
     - mysql
@@ -17,7 +17,6 @@ laravel5:
   privileged: true
   extra_hosts:
     - "laravel.dev:xxx.xxx.xxx.xxx"
-
 
 # MySQL Container #----------------------------------------
 mysql:
@@ -34,7 +33,6 @@ mysql:
     MYSQL_USER: homestead
     MYSQL_PASSWORD: secret
   privileged: true
-
 
 # MySQL Container #----------------------------------------
 mysqltesting:
