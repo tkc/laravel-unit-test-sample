@@ -10,10 +10,14 @@ machine:
     DB_USERNAME: homestead
     DB_PASSWORD: secret
 
-#dependencies:
+dependencies:
+    cache_directories:
+        - /home/ubuntu/laravel-unit-test-sample/Code/.composer/cache
+
 #  override:
 #    - cp Code/composer.json_org Code/composer.json
 #    - cd Code && composer install --prefer-source --no-interaction --no-dev
+
   post:
     - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/storage
     - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/bootstrap/cache
@@ -22,7 +26,6 @@ machine:
 #  override:
 #    - cd Code && php artisan migrate --force --env=circleci
 #    - cd Code && php artisan db:seed --force --env=circleci
-
 
 test:
   override:
