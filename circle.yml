@@ -3,31 +3,49 @@ machine:
     Asia/Tokyo
   php:
     version: 5.6.5
+
+  # Override /etc/hosts
+  hosts:
+    circlehost: 127.0.0.1
+    dev.mycompany.com: 127.0.0.1
+
   environment:
+    CIRCLE_ENV: test
     APP_ENV: circleci
+#    DATABASE_URL: postgres://ubuntu:@127.0.0.1:5432/circle_test
+
     DB_HOST: 127.0.0.1
     DB_DATABASE: homestead
     DB_USERNAME: homestead
     DB_PASSWORD: secret
 
-
-dependencies:
-  cache_directories:
-    - /home/ubuntu/laravel-unit-test-sample/Code/.composer/cache
-
-
+#dependencies:
+#  pre:
+#    - pecl install mongo
+#    - cp config/custom.ini ~/.phpenv/versions/$(phpenv global)/etc/conf.d/
+#  cache_directories:
+#    - /home/ubuntu/laravel-unit-test-sample/Code/.composer/cache
 #  override:
 #    - cp Code/composer.json_org Code/composer.json
 #    - cd Code && composer install --prefer-source --no-interaction --no-dev
+#  post:
+#    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/storage
+#    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/bootstrap/cache
 
-  post:
-    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/storage
-    - sudo chmod -R 775 /home/ubuntu/laravel-unit-test-sample/Code/bootstrap/cache
-
-#database:
-#  override:
+database:
+  override:
+    - mv database.ci.yml config/database.yml
+    - bundle exec rake ar:create ar:schema:load
+#    - mysql -u ubuntu circle_test < my-database-setup.sql
+#    - bundle exec rake db:create db:schema:load --trace
 #    - cd Code && php artisan migrate --force --env=circleci
 #    - cd Code && php artisan db:seed --force --env=circleci
+#    override:
+#      - mv config/database.yml.ci config/database.yml
+#      - bundle exec rake ar:create ar:schema:load
+# post:
+#    - mysql -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/setup.sql
+#    - mysql sample_db -u root < $HOME/$CIRCLE_PROJECT_REPONAME/ddl/mysql/data.sql
 
 test:
   override:
