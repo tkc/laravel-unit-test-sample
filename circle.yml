@@ -10,9 +10,11 @@ machine:
     DB_USERNAME: homestead
     DB_PASSWORD: secret
 
+
 dependencies:
   cache_directories:
     - /home/ubuntu/laravel-unit-test-sample/Code/.composer/cache
+
 
 #  override:
 #    - cp Code/composer.json_org Code/composer.json
