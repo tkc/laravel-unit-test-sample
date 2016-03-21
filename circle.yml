@@ -33,7 +33,7 @@ machine:
 
 database:
   override:
-    - mv database.ci.yml config/database.yml
+    - mv $HOME/$CIRCLE_PROJECT_REPONAME/database.ci.yml config/database.yml
 #    - mysql -u ubuntu circle_test < my-database-setup.sql
 #    - bundle exec rake db:create db:schema:load --trace
 #    - cd Code && php artisan migrate --force --env=circleci
